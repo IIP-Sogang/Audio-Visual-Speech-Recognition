@@ -1,0 +1,11 @@
+# ninja log v5
+22	178	1609924019283755123	/home/nas/user/jungwook/DCM_vgg_transformer/build/temp.linux-x86_64-3.7/fairseq/clib/libbleu/module.o	2e4342307cf7b60
+21	382	1609924019488755641	/home/nas/user/jungwook/DCM_vgg_transformer/build/temp.linux-x86_64-3.7/fairseq/clib/libbleu/libbleu.o	bcb14fff9c804ef2
+1	3088	1609924022709763787	/home/nas/user/jungwook/DCM_vgg_transformer/build/temp.linux-x86_64-3.7/fairseq/data/data_utils_fast.o	adb8e89bc5509555
+5	3633	1609924026488773345	/home/nas/user/jungwook/DCM_vgg_transformer/build/temp.linux-x86_64-3.7/fairseq/data/token_block_utils_fast.o	47037711622211c4
+15	13722	1609924040362808439	/home/nas/user/jungwook/DCM_vgg_transformer/build/temp.linux-x86_64-3.7/fairseq/clib/libnat/edit_dist.o	e66cc2cdf897cd
+1	128	1626441600335236527	/home/nas/user/jungwook/DCM_vgg_transformer/build/temp.linux-x86_64-3.7/fairseq/clib/libbleu/module.o	d12b52ae7ad43be2
+1	351	1626441600558237217	/home/nas/user/jungwook/DCM_vgg_transformer/build/temp.linux-x86_64-3.7/fairseq/clib/libbleu/libbleu.o	e2f8df9b5ef2952d
+1	2962	1626441603717246994	/home/nas/user/jungwook/DCM_vgg_transformer/build/temp.linux-x86_64-3.7/fairseq/data/data_utils_fast.o	8c1e948042b2d890
+1	3410	1626441607350258235	/home/nas/user/jungwook/DCM_vgg_transformer/build/temp.linux-x86_64-3.7/fairseq/data/token_block_utils_fast.o	227f04a294bb6a71
+3	14245	1626441621809302986	/home/nas/user/jungwook/DCM_vgg_transformer/build/temp.linux-x86_64-3.7/fairseq/clib/libnat/edit_dist.o	822368d8bd00c4af
