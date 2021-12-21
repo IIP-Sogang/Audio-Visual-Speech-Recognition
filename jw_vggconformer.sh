@@ -1,7 +1,7 @@
 # alias
 sclite='/home/nas3/user/jungwook/SCTK/src/sclite/sclite'
 # Select GPU
-IDX_GPU=0
+IDX_GPU=2
 # Preparing dataset
 DIR_TO_SAVE_RAW_DATA=/home/nas/DB/[DB]_for_fairseq/[DB]_LRS_con/raw_data
 DIR_FOR_PREPROCESSED_DATA=/home/nas/DB/[DB]_for_fairseq/[DB]_LRS_con/preprocessed_data/character/jw_sentence_noisy_eq
@@ -12,7 +12,7 @@ DIR_FOR_PREPROCESSED_DATA=/home/nas/DB/[DB]_for_fairseq/[DB]_LRS_con/preprocesse
 
 # Training
 TASK=audio_visual_speech_recognition
-MAX_EPOCH=66
+MAX_EPOCH=100
 NUM_WORKERS=20
 ARCH=BiModalvggconformer_avsr_base
 CODE=VGG_base_wi_conformer_CE_new_feat
@@ -29,7 +29,7 @@ TENSORBOARD=/home/nas/user/jungwook/DCM_vgg_transformer/result/$TASK/$ARCH/tenso
 USER_DIR=/home/nas/user/jungwook/DCM_vgg_transformer/examples/$TASK/
 
 if [ $1 -eq 1 ]; then
-	CUDA_VISIBLE_DEVICES=$IDX_GPU python3.7 train.py \
+	CUDA_VISIBLE_DEVICES=$IDX_GPU python train_practice.py \
 		$DIR_FOR_PREPROCESSED_DATA \
 		--save-dir $MODEL_PATH \
 		--max-epoch $MAX_EPOCH \

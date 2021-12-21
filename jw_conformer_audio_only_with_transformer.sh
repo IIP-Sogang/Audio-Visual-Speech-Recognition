@@ -4,7 +4,7 @@ sclite='/home/nas3/user/jungwook/SCTK/src/sclite/sclite'
 IDX_GPU=1
 # Preparing dataset
 DIR_TO_SAVE_RAW_DATA=/home/nas/DB/[DB]_for_fairseq/[DB]_LRS_con/raw_data
-DIR_FOR_PREPROCESSED_DATA=/home/nas/DB/[DB]_for_fairseq/[DB]_LRS_con/preprocessed_data/character/shortword 
+DIR_FOR_PREPROCESSED_DATA=/home/nas/DB/[DB]_for_fairseq/[DB]_LRS_con/preprocessed_data/character/new_sentence_noisy_eq 
 
 # if [ $1 -eq 0 ]; then
 # 	sh /home/nas/user/yong/fairseq/examples/audio_visual_speech_recognition/datasets/prepare-LRS.sh
@@ -12,16 +12,16 @@ DIR_FOR_PREPROCESSED_DATA=/home/nas/DB/[DB]_for_fairseq/[DB]_LRS_con/preprocesse
 
 # Training
 TASK=audio_visual_speech_recognition
-MAX_EPOCH=10
+MAX_EPOCH=75
 NUM_WORKERS=20
 ARCH=BiModalvggconformer_avsr_audio_only_with_transformer_1layer
 CODE=new_feature_VGG_base_wi_transformer_CE_yh
 MODEL_PATH=/home/nas/user/jungwook/DCM_vgg_transformer/result/$TASK/$ARCH/model/$CODE
-LR=1
+LR=0.1
 LR_SHRINK=0.5
 # Available --lr-scheduler options 
 # fixed, polynomial_decay, triangular, reduce_lr_on_plateau, inverse_sqrt, cosine #
-LR_SCHEDULER=reduce_lr_on_plateau
+LR_SCHEDULER=fixed
 CLIP_NORM=10.0
 MAX_TOKEN=6000
 CRITERION=cross_entropy_acc

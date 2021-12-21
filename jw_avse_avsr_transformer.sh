@@ -1,29 +1,29 @@
 # alias
 sclite='/home/nas3/user/jungwook/SCTK/src/sclite/sclite'
 # Select GPU
-IDX_GPU=1
+IDX_GPU=0
 # Preparing dataset
 DIR_TO_SAVE_RAW_DATA=/home/nas/DB/[DB]_for_fairseq/[DB]_LRS_con/raw_data
-DIR_FOR_PREPROCESSED_DATA=/home/nas/DB/[DB]_for_fairseq/[DB]_LRS_con/preprocessed_data/character/sentence_pretrain_trainval
+DIR_FOR_PREPROCESSED_DATA=/home/nas/DB/[DB]_for_fairseq/[DB]_LRS_con/preprocessed_data/character/new_sentence_noisy_eq
 # if [ $1 -eq 0 ]; then
 # 	sh /home/nas/user/yong/fairseq/examples/audio_visual_speech_recognition/datasets/prepare-LRS.sh
 # fi
 
 # Training
 TASK=audio_visual_se_sr
-MAX_EPOCH=20
-NUM_WORKERS=20
-ARCH=BiModalvggtransformer_avse_avsr_base
-CODE=new_feature_VGG_base_wi_transformer_CE_yh
+MAX_EPOCH=15
+NUM_WORKERS=0
+ARCH=e2e_BiModalvggtransformer_avse_avsr_base
+CODE=new_feature_VGG_base_wi_transformer_CE_yh_noisy_1vs0
 MODEL_PATH=/home/nas/user/jungwook/DCM_vgg_transformer/result/$TASK/$ARCH/model/$CODE
-LR=1
+LR=0.1
 LR_SHRINK=0.5
 # Available --lr-scheduler options 
 # fixed, polynomial_decay, triangular, reduce_lr_on_plateau, inverse_sqrt, cosine #
-LR_SCHEDULER=reduce_lr_on_plateau
+LR_SCHEDULER=fixed
 CLIP_NORM=10.0
-MAX_TOKEN=6000
-CRITERION=cross_entropy_acc
+MAX_TOKEN=3000
+CRITERION=avse_avsr_cross_entropy_acc
 TENSORBOARD=/home/nas/user/jungwook/DCM_vgg_transformer/result/$TASK/$ARCH/tensorboard/$CODE
 USER_DIR=/home/nas/user/jungwook/DCM_vgg_transformer/examples/$TASK/
 
@@ -49,7 +49,8 @@ if [ $1 -eq 1 ]; then
 		--tensorboard-logdir $TENSORBOARD \
 		--user-dir $USER_DIR \
 		--fp16 \
-		--dataset-method 2
+		--avse_avsr_ce_alpha 1.0 \
+		--dataset-method 3
 		#--no-save
 	
 fi
