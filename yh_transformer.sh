@@ -1,7 +1,7 @@
 # alias
 sclite='/home/nas3/user/jungwook/SCTK/src/sclite/sclite'
 # Select GPU
-IDX_GPU=1
+IDX_GPU=2
 # Preparing dataset
 DIR_TO_SAVE_RAW_DATA=/home/nas/DB/[DB]_for_fairseq/[DB]_LRS_con/raw_data
 DIR_FOR_PREPROCESSED_DATA=/home/nas/DB/[DB]_for_fairseq/[DB]_LRS_con/preprocessed_data/character/new_sentence_noisy_eq
@@ -12,7 +12,7 @@ DIR_FOR_PREPROCESSED_DATA=/home/nas/DB/[DB]_for_fairseq/[DB]_LRS_con/preprocesse
 
 # Training
 TASK=audio_visual_speech_recognition
-MAX_EPOCH=75
+MAX_EPOCH=76
 NUM_WORKERS=20
 ARCH=BiModalvggtransformer_avsr_base
 CODE=new_feature_VGG_base_wi_transformer_CE_yh

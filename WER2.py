@@ -7,8 +7,8 @@ parser = argparse.ArgumentParser(description='transformer AVSR evalution code')
 parser.add_argument('--gpu', type=str, default='0', help='gpu index')
 parser.add_argument('--arch', type=str, required=True, help='model architecture')
 parser.add_argument('--code', type=str, required=True, help='model code')
-parser.add_argument('--start', type=int, default=60, help='start epoch')
-parser.add_argument('--end', type=int, default=60, help='end epoch')
+parser.add_argument('--start', type=int, default=69, help='start epoch')
+parser.add_argument('--end', type=int, default=69, help='end epoch')
 parser.add_argument('--data', type=str, default='LRS_con', help='LRS2-BBC, LRS3-TED and both ot them')
 parser.add_argument('--words', type=int, default=0, help='#words in sentence inference')
 parser.add_argument('--vid_off', type=int, default=0, help='#frames in video offset')
@@ -23,7 +23,7 @@ CODE=args.code
 
 SNR=['clean','20dB','15dB','10dB','5dB','0dB','m5dB']
 # SNR=['clean']
-SNR=['20dB','15dB','10dB','5dB','0dB','m5dB']
+# SNR=['20dB','15dB','10dB','5dB','0dB','m5dB']
 st=args.start
 ed=args.end
 if args.data == 'LRS_con':

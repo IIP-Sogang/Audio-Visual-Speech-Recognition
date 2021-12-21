@@ -11,19 +11,19 @@ def search(d_name, li, EXT):
                 li.append(os.path.join(os.path.join(os.path.abspath(d_name),paths),filename))
 
 READ_ROOT = sys.argv[1]
-pdb.set_trace()
+# pdb.set_trace()
 res_list2 = []
 search(READ_ROOT, res_list2, sys.argv[2])
 res_list2 = sorted(res_list2)
-pdb.set_trace()
-df = pd.DataFrame(columns=['clean','20dB','15dB','10dB','5dB','0dB','m5dB'])
-check_list = ['clean','20dB','15dB','10dB','5dB','0dB','m5dB']
+# pdb.set_trace()
+df = pd.DataFrame(columns=['clean','20dB','15dB','10dB','5dB','0dB','m5dB','m10dB','m15dB','m20dB'])
+check_list = ['clean','20dB','15dB','10dB','5dB','0dB','m5dB','m10dB','m15dB','m20dB']
 res_list = []
 for i in range(len(res_list2)):
     if res_list2[i].split('/')[-2][0:3]=='new':
         res_list.append(res_list2[i])
 res_list = sorted(res_list)
-pdb.set_trace()
+# pdb.set_trace()
 # df = pd.DataFrame(columns=['20dB','15dB','10dB','5dB','0dB','m5dB'])
 # check_list = ['20dB','15dB','10dB','5dB','0dB','m5dB']
 #check_list = ['clean']

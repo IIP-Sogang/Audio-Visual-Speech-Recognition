@@ -1,8 +1,8 @@
-./yh_transformer_aonly.sh 1
+# ./yh_transformer_aonly.sh 1
 
-sed -i 's/shortword/sentence_pretrain_trainval/g' ./yh_transformer_aonly.sh
-sed -i 's/MAX_EPOCH=10/MAX_EPOCH=11/g' ./yh_transformer_aonly.sh
-sed -i 's/LR_SCHEDULER=reduce_lr_on_plateau/LR_SCHEDULER=fixed/g' ./yh_transformer_aonly.sh
+# sed -i 's/shortword/sentence_pretrain_trainval/g' ./yh_transformer_aonly.sh
+# sed -i 's/MAX_EPOCH=10/MAX_EPOCH=11/g' ./yh_transformer_aonly.sh
+# sed -i 's/LR_SCHEDULER=reduce_lr_on_plateau/LR_SCHEDULER=fixed/g' ./yh_transformer_aonly.sh
 ./yh_transformer_aonly.sh 1
 
 sed -i 's/MAX_EPOCH=11/MAX_EPOCH=30/g' ./yh_transformer_aonly.sh

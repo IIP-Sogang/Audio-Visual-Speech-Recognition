@@ -4,11 +4,11 @@ import sys
 
 parser = argparse.ArgumentParser(description='transformer AVSR evalution code')
 
-parser.add_argument('--gpu', type=str, default='1', help='gpu index')
+parser.add_argument('--gpu', type=str, default='0', help='gpu index')
 parser.add_argument('--arch', type=str, required=True, help='model architecture')
 parser.add_argument('--code', type=str, required=True, help='model code')
-parser.add_argument('--start', type=int, default=1, help='start epoch')
-parser.add_argument('--end', type=int, default=15, help='end epoch')
+parser.add_argument('--start', type=int, default=14, help='start epoch')
+parser.add_argument('--end', type=int, default=20, help='end epoch')
 parser.add_argument('--data', type=str, default='LRS_con', help='LRS2-BBC, LRS3-TED and both ot them')
 parser.add_argument('--words', type=int, default=0, help='#words in sentence inference')
 parser.add_argument('--vid_off', type=int, default=0, help='#frames in video offset')
@@ -20,8 +20,7 @@ args = parser.parse_args()
 IDX_GPU=args.gpu
 ARCH=args.arch
 CODE=args.code
-# SNR=['clean','20dB','15dB','10dB','5dB','0dB','m5dB']
-SNR=['m10dB','m15dB','m20dB']
+SNR=['clean','20dB','15dB','10dB','5dB','0dB','m5dB']
 #SNR=['m10dB']
 # SNR=['clean']
 
@@ -60,7 +59,7 @@ if args.vid_off == 1:
     for epoch in EPOCH:
         for snr in SNR:
             offsets = int(snr.split('_')[0])
-            command = "sh ./WER_avse_avsr.sh " + IDX_GPU + " " + ARCH + " " + CODE + " " + "test_" + str(snr) + " " + str(epoch) + " " + str(db) + " " + str(args.data) + " " + str(offsets)
+            command = "sh ./SNR_avse_avsr.sh " + IDX_GPU + " " + ARCH + " " + CODE + " " + "test_" + str(snr) + " " + str(epoch) + " " + str(db) + " " + str(args.data) + " " + str(offsets)
             print(command)
             subprocess.call(command, shell=True)
     sys.exit()
@@ -72,7 +71,7 @@ elif args.vid_off == 2:
     for epoch in EPOCH:
         for snr in SNR:
             offsets = int(snr.split('_')[0])
-            command = "sh ./WER_avse_avsr.sh " + IDX_GPU + " " + ARCH + " " + CODE + " " + "test_" + str(snr) + " " + str(epoch) + " " + str(db) + " " + str(args.data) + " " + str(offsets)
+            command = "sh ./SNR_avse_avsr.sh " + IDX_GPU + " " + ARCH + " " + CODE + " " + "test_" + str(snr) + " " + str(epoch) + " " + str(db) + " " + str(args.data) + " " + str(offsets)
             print(command)
             subprocess.call(command, shell=True)
     sys.exit()
@@ -84,13 +83,13 @@ elif args.vid_off == 3:
     for epoch in EPOCH:
         for snr in SNR:
             offsets = int(snr.split('_')[0])
-            command = "sh ./WER_avse_avsr.sh " + IDX_GPU + " " + ARCH + " " + CODE + " " + "test_" + str(snr) + " " + str(epoch) + " " + str(db) + " " + str(args.data) + " " + str(offsets)
+            command = "sh ./SNR_avse_avsr.sh " + IDX_GPU + " " + ARCH + " " + CODE + " " + "test_" + str(snr) + " " + str(epoch) + " " + str(db) + " " + str(args.data) + " " + str(offsets)
             print(command)
             subprocess.call(command, shell=True)
     sys.exit()
 
 for epoch in EPOCH:
     for snr in SNR:
-        command = "sh ./WER_avse_avsr.sh " + IDX_GPU + " " + ARCH + " " + CODE + " " + "new_test_" + str(snr) + " " + str(epoch) + " " + str(db) + " " + str(args.data) + " " + str(0)
+        command = "sh ./SNR_avse_avsr_speech.sh " + IDX_GPU + " " + ARCH + " " + CODE + " " + "new_test_" + str(snr) + " " + str(epoch) + " " + str(db) + " " + str(args.data) + " " + str(0)
         print(command)
         subprocess.call(command, shell=True)

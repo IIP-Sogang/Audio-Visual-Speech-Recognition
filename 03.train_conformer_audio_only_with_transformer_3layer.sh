@@ -1,12 +1,12 @@
-./jw_conformer_audio_only_with_transformer_3layer.sh 1
+# ./jw_conformer_audio_only_with_transformer_3layer.sh 1
 
-sed -i 's/shortword/sentence_pretrain_trainval/g' ./jw_conformer_audio_only_with_transformer_3layer.sh
-sed -i 's/MAX_EPOCH=10/MAX_EPOCH=11/g' ./jw_conformer_audio_only_with_transformer_3layer.sh
-sed -i 's/LR_SCHEDULER=reduce_lr_on_plateau/LR_SCHEDULER=fixed/g' ./jw_conformer_audio_only_with_transformer_3layer.sh
-./jw_conformer_audio_only_with_transformer_3layer.sh 1
+# sed -i 's/shortword/sentence_pretrain_trainval/g' ./jw_conformer_audio_only_with_transformer_3layer.sh
+# sed -i 's/MAX_EPOCH=10/MAX_EPOCH=11/g' ./jw_conformer_audio_only_with_transformer_3layer.sh
+# sed -i 's/LR_SCHEDULER=reduce_lr_on_plateau/LR_SCHEDULER=fixed/g' ./jw_conformer_audio_only_with_transformer_3layer.sh
+# ./jw_conformer_audio_only_with_transformer_3layer.sh 1
 
-sed -i 's/MAX_EPOCH=11/MAX_EPOCH=30/g' ./jw_conformer_audio_only_with_transformer_3layer.sh
-sed -i 's/LR_SCHEDULER=fixed/LR_SCHEDULER=reduce_lr_on_plateau/g' ./jw_conformer_audio_only_with_transformer_3layer.sh
+# sed -i 's/MAX_EPOCH=11/MAX_EPOCH=30/g' ./jw_conformer_audio_only_with_transformer_3layer.sh
+# sed -i 's/LR_SCHEDULER=fixed/LR_SCHEDULER=reduce_lr_on_plateau/g' ./jw_conformer_audio_only_with_transformer_3layer.sh
 ./jw_conformer_audio_only_with_transformer_3layer.sh 1
 
 

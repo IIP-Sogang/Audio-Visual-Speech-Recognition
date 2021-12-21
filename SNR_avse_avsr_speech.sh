@@ -11,15 +11,15 @@ VID_OFS=$8
 GAUSSIAN_VARIANCE=$9
 GAUSSIAN_POW=$10
 
-TASK=audio_visual_speech_recognition
+TASK=audio_visual_se_sr
 DIR_FOR_PREPROCESSED_DATA=$6
 MODEL_PATH=/home/nas/user/jungwook/DCM_vgg_transformer/result/$TASK/$ARCH/model/$CODE
 MAX_TOKEN=6000
 N_BEST=1
 BEAM=35
-RES_DIR=/home/nas/user/jungwook/DCM_vgg_transformer/result_kaldi/$TASK/$ARCH/prediction/$CODE
-WORD_RES_REPORT=/home/nas/user/jungwook/DCM_vgg_transformer/result_kaldi/$TASK/$ARCH/{$7}_SNR_TEST/$CODE/$EPOCH/$SET/WER_$CODE
-UNIT_RES_REPORT=/home/nas/user/jungwook/DCM_vgg_transformer/result_kaldi/$TASK/$ARCH/{$7}_SNR_TEST/$CODE/$EPOCH/$SET/CER_$CODE
+RES_DIR=/home/nas/user/jungwook/DCM_vgg_transformer/result_jw/$TASK/$ARCH/prediction/$CODE
+WORD_RES_REPORT=/home/nas/user/jungwook/DCM_vgg_transformer/result_jw/$TASK/$ARCH/{$7}_SNR_TEST/$CODE/$EPOCH/$SET/WER_$CODE
+UNIT_RES_REPORT=/home/nas/user/jungwook/DCM_vgg_transformer/result_jw/$TASK/$ARCH/{$7}_SNR_TEST/$CODE/$EPOCH/$SET/CER_$CODE
 CHECK_POINT=checkpoint$EPOCH
 USER_DIR=/home/nas/user/jungwook/DCM_vgg_transformer/examples/$TASK
 
@@ -27,7 +27,7 @@ if [ -f "$WORD_RES_REPORT" ]; then
 	exit 0
 fi
 
-mkdir -p /home/nas/user/jungwook/DCM_vgg_transformer/result_kaldi/$TASK/$ARCH/{$7}_SNR_TEST/$CODE/$EPOCH/$SET
+mkdir -p /home/nas/user/jungwook/DCM_vgg_transformer/result_jw/$TASK/$ARCH/{$7}_SNR_TEST/$CODE/$EPOCH/$SET
 
 CUDA_VISIBLE_DEVICES=$IDX_GPU python3.7 examples/$TASK/infer.py \
 	$DIR_FOR_PREPROCESSED_DATA \
@@ -40,7 +40,7 @@ CUDA_VISIBLE_DEVICES=$IDX_GPU python3.7 examples/$TASK/infer.py \
 	--gen-subset $SET \
 	--user-dir $USER_DIR \
 	--vid_ofs $VID_OFS \
-	--dataset-method 4 \
+	--dataset-method 2 \
 	#--gaussian_variance $GAUSSIAN_VARIANCE \
 	#--gaussian_pow_value $GAUSSIAN_POW \
 
