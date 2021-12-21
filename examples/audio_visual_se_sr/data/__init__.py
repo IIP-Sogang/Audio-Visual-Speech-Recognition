@@ -4,7 +4,9 @@
 # LICENSE file in the root directory of this source tree.
 
 from .asr_dataset import AsrDataset
+from .asr_dataset_avse_avsr import AsrDataset_avse_avsr
 
 __all__ = [
     'AsrDataset',
+    'AsrDataset_avse_avsr',
 ]

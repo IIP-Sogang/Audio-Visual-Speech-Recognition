@@ -10,7 +10,7 @@ import pdb
 import torch
 from fairseq.data import Dictionary
 from fairseq.tasks import FairseqTask, register_task
-from examples.audio_visual_se_sr.data import AsrDataset
+from examples.audio_visual_se_sr.data import AsrDataset,AsrDataset_avse_avsr
 
 
 def get_asr_dataset_from_json(data_json_path, tgt_dict, dataset_method=1, video_offset=0):
@@ -49,8 +49,10 @@ def get_asr_dataset_from_json(data_json_path, tgt_dict, dataset_method=1, video_
             key=lambda sample: int(sample[1]["input"]["length_ms"]),
             reverse=True,
         )
+        # pdb.set_trace()
         aud_paths = [s[1]["input"]["path_aud"] for s in sorted_samples]
         vid_paths = [s[1]["input"]["path_vid"] for s in sorted_samples]
+        clean_paths = [s[1]["output"]["path_aud"] for s in sorted_samples]
         ids = [s[0] for s in sorted_samples]
         speakers = []
         for s in sorted_samples:
@@ -74,8 +76,8 @@ def get_asr_dataset_from_json(data_json_path, tgt_dict, dataset_method=1, video_
                 aud_paths, vid_paths, frame_sizes, tgt, tgt_dict, ids, speakers, video_offset=video_offset
             )
         if dataset_method == 3:
-            return AsrDataset(
-                aud_paths, vid_paths, frame_sizes, tgt, tgt_dict, ids, speakers, video_offset=video_offset
+            return AsrDataset_avse_avsr(
+                aud_paths, clean_paths,vid_paths, frame_sizes, tgt, tgt_dict, ids, speakers, video_offset=video_offset
             )
 
 
